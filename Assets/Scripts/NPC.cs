@@ -6,10 +6,12 @@ public class NPC : Interactable
 {
 
     DialogTrigger dialogtrigger;
+    QuestGiver questgiver;
 
     void Start()
     {
         dialogtrigger = GetComponent<DialogTrigger>();
+        questgiver = GetComponent<QuestGiver>();
     }
 
     public override void Interact()
@@ -17,6 +19,6 @@ public class NPC : Interactable
         base.Interact();
 
         dialogtrigger.TriggerDialog();
-
+        questgiver.QuestPrompt();
     }
 }

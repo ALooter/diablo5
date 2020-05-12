@@ -9,6 +9,8 @@ public class QuestGiver : MonoBehaviour
 
     QuestManager questmanager;
 
+
+
     public void QuestPrompt()
     {
         questmanager = QuestManager.instance;
@@ -18,5 +20,10 @@ public class QuestGiver : MonoBehaviour
     public void QuestAccept()
     {
         questmanager.AcceptQuest(quest);
+    }
+
+    public void QuestDecline()
+    {
+        questmanager.DeclineQuest();
     }
 }

@@ -39,6 +39,11 @@ public class QuestManager : MonoBehaviour
         reward1.sprite = quest.reward1.icon;
     }
 
+    public void DeclineQuest()
+    {
+        questbox.SetActive(false);
+    }
+
     public void AcceptQuest(Quest quest)
     {
         questbox.SetActive(false);
