@@ -1,8 +1,13 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class InventoryUI : MonoBehaviour
 {
     public GameObject inventoryui;
+
+    public GameObject skillbookui;
+    public CharacterStats stats;
+    public Text hp, armor, damage, attackspeed;
 
     Inventory inventory;
 
@@ -25,6 +30,39 @@ public class InventoryUI : MonoBehaviour
         {
             inventoryui.SetActive(!inventoryui.activeSelf);
         }
+
+        if (Input.GetButtonDown("Skillbook"))
+        {
+            inventoryui.SetActive(!skillbookui.activeSelf);
+        }
+
+        //update text - make 1 time updates instead of updating every second
+        hp.text = stats.maxhealth.ToString();
+        armor.text = stats.armor.ToString();
+        damage.text = stats.damage.ToString();
+        attackspeed.text = stats.attackspeed.ToString();
+
+    }
+
+    //placeholder code(((
+    void healthUp()
+    {
+        //stats.maxhealth.AddModifier;
+    }
+
+    void armorUp()
+    {
+        //stats.armor += 4;
+    }
+
+    void damageUp()
+    {
+        //stats.damage += 3;
+    }
+
+    void attackspeedUp()
+    {
+        //stats.attackspeed += 2;
     }
 
     void UpdateUI()
@@ -40,5 +78,9 @@ public class InventoryUI : MonoBehaviour
                 slots[i].ClearSlot();
             }
         }
+
     }
+
+
+
 }

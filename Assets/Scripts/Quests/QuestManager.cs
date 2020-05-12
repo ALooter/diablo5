@@ -26,6 +26,8 @@ public class QuestManager : MonoBehaviour
     public Text test_questlogui;
     private Queue<string> test_activequests;
 
+    private Quest currentquest;
+
     void Start()
     {
         test_activequests = new Queue<string>();
@@ -37,6 +39,7 @@ public class QuestManager : MonoBehaviour
         title.text = quest.title;
         description.text = quest.description;
         reward1.sprite = quest.reward1.icon;
+        currentquest = quest;
     }
 
     public void DeclineQuest()
@@ -44,16 +47,16 @@ public class QuestManager : MonoBehaviour
         questbox.SetActive(false);
     }
 
-    public void AcceptQuest(Quest quest)
+    public void AcceptQuest()
     {
         questbox.SetActive(false);
-        quest.isactive = true;
+        currentquest.isactive = true;
 
         //replace string with Quest object and you get nice code (i hope)
-        test_activequests.Enqueue(quest.title);
+        test_activequests.Enqueue(currentquest.title);
         //foreach (string que in test_activequests)
         //{
-            test_questlogui.text +=" -!- " + quest.title + "\n";
+            test_questlogui.text +=" -!- " + currentquest.title + "\n";
         //}
     }
 

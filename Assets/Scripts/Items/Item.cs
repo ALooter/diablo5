@@ -6,6 +6,8 @@ public class Item : ScriptableObject
     public string itemname;
     public Sprite icon;
     public bool isdefaultitem;
+    public GameObject model;
+    //public Transform transfor;
 
     public virtual void Use()
     {
@@ -13,9 +15,11 @@ public class Item : ScriptableObject
 
         Debug.Log("Using " + itemname);
     }
-    
+
     public void RemoveFromInventory()
     {
         Inventory.instance.Remove(this);
     }
+
+
 }
